@@ -20,15 +20,18 @@
 > **You are the expert. TourGuide is your knowledge template.**
 
 **[Try the Demo →](DEMO-README.md)** (Show this to your AI assistant)
-
 ---
 
 ## What is TourGuide?
 
 TourGuide is a **JSON-only navigation system** that guides AI agents through your codebase using interconnected guide files.
-
 **What it does:**
-- ✅ Provides sequential navigation paths (that **you create**)
+## Author
+
+**Ali Cem Topcu**  
+GitHub: [kilgor](https://github.com/kilgor)  
+LinkedIn: [ali-cem-topcu-b223a5a4](https://www.linkedin.com/in/ali-cem-topcu-b223a5a4/)
+
 - ✅ Defines what to read and in what order (that **you specify**)
 - ✅ Sets completion checkpoints (that **you design**)
 - ✅ Links to sub-guides for deep dives (that **you organize**)

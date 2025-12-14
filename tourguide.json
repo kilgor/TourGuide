@@ -1,5 +1,10 @@
 {
   "guide_name": "TourGuide Self-Tour",
+  "author": {
+    "name": "Ali Cem Topcu",
+    "github": "kilgor",
+    "linkedin": "https://www.linkedin.com/in/ali-cem-topcu-b223a5a4/"
+  },
   "version": "0.1.0",
   "description": "A meta-circular guide: TourGuide navigates itself",
   "ai_instructions": {
