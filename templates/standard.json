@@ -1,0 +1,171 @@
+{
+  "guide_name": "Standard Project Guide",
+  "version": "0.0.1",
+  "description": "A typical TourGuide for most projects",
+  "ai_instructions": {
+    "role": "You are exploring this project systematically",
+    "task": "Build complete understanding through phased navigation",
+    "rules": [
+      "Read files in the exact order specified",
+      "Complete each checkpoint before moving to the next phase",
+      "Follow sub-guides when indicated",
+      "Do NOT skip ahead or summarize until instructed"
+    ]
+  },
+  "navigation": {
+    "start_here": "phase_1",
+    "phases": [
+      {
+        "id": "phase_1",
+        "name": "Project Context",
+        "description": "Understand the project's purpose and scope",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "read_file",
+            "path": "README.md",
+            "focus": [
+              "Project description",
+              "Key features",
+              "Installation instructions"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "read_file",
+            "path": "docs/ARCHITECTURE.md",
+            "focus": [
+              "High-level design",
+              "Component relationships",
+              "Technology stack"
+            ]
+          },
+          {
+            "step": 3,
+            "action": "checkpoint",
+            "verify": [
+              "What problem does this project solve?",
+              "What are the main components?",
+              "What technologies are used?"
+            ],
+            "next": "If you can answer these, proceed to phase_2"
+          }
+        ]
+      },
+      {
+        "id": "phase_2",
+        "name": "Core Implementation",
+        "description": "Understand the main codebase structure",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "read_file",
+            "path": "src/main.py",
+            "focus": [
+              "Entry point",
+              "Main execution flow",
+              "Key imports"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "follow_guide",
+            "path": "src/tourguide.json",
+            "notes": "Deep dive into source code organization"
+          },
+          {
+            "step": 3,
+            "action": "checkpoint",
+            "verify": [
+              "How does the application start?",
+              "What are the core modules?",
+              "How do components interact?"
+            ],
+            "next": "If clear, proceed to phase_3"
+          }
+        ]
+      },
+      {
+        "id": "phase_3",
+        "name": "Configuration & Dependencies",
+        "description": "Understand setup and external requirements",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "read_file",
+            "path": "requirements.txt",
+            "focus": ["External dependencies", "Version constraints"]
+          },
+          {
+            "step": 2,
+            "action": "read_file",
+            "path": "config/settings.json",
+            "focus": ["Configurable parameters", "Default values"]
+          },
+          {
+            "step": 3,
+            "action": "checkpoint",
+            "verify": [
+              "What are the key dependencies?",
+              "What can be configured?",
+              "Are there environment-specific settings?"
+            ],
+            "next": "If understood, proceed to final_summary"
+          }
+        ]
+      },
+      {
+        "id": "final_summary",
+        "name": "Completion",
+        "description": "Synthesize understanding",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "report",
+            "task": "Summarize your understanding of the project",
+            "include": [
+              "Project purpose and scope",
+              "Architecture and design patterns",
+              "Key components and their relationships",
+              "Dependencies and configuration"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "complete",
+            "message": "✅ Project exploration complete. You now have a systematic understanding of this codebase.",
+            "next_steps": [
+              "Ready for specific questions",
+              "Can assist with targeted modifications",
+              "Can debug based on complete context"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "ignorance_zones": [
+    {
+      "path": "tests/",
+      "reason": "Test code is typically less critical for initial understanding"
+    },
+    {
+      "path": ".github/",
+      "reason": "CI/CD configuration not needed for core understanding"
+    },
+    {
+      "path": "node_modules/",
+      "reason": "External dependencies, not project code"
+    },
+    {
+      "path": "__pycache__/",
+      "reason": "Build artifacts, not source code"
+    }
+  ],
+  "completion_criteria": {
+    "context": "AI understands project purpose and scope",
+    "structure": "AI knows the architecture and main components",
+    "dependencies": "AI is aware of external requirements",
+    "ready": "AI can answer specific questions or assist with tasks"
+  }
+}

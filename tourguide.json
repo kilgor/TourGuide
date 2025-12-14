@@ -1,0 +1,171 @@
+{
+  "guide_name": "TourGuide Self-Tour",
+  "version": "0.1.0",
+  "description": "A meta-circular guide: TourGuide navigates itself",
+  "ai_instructions": {
+    "role": "You are exploring the TourGuide project",
+    "task": "Follow this guide to understand what TourGuide is and how it works",
+    "rules": [
+      "Read files in the exact order specified",
+      "Complete each checkpoint before moving to the next phase",
+      "Do NOT skip ahead or summarize until instructed",
+      "Report what you learned at each checkpoint"
+    ]
+  },
+  "navigation": {
+    "start_here": "phase_1",
+    "phases": [
+      {
+        "id": "phase_1",
+        "name": "Understanding TourGuide",
+        "description": "Learn what TourGuide is (and what it is NOT)",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "read_file",
+            "path": "README.md",
+            "focus": [
+              "What TourGuide does vs what it does NOT do",
+              "Core philosophy",
+              "Common mistakes section"
+            ],
+            "notes": "Pay attention to the warnings and philosophy. TourGuide is NOT a code generator."
+          },
+          {
+            "step": 2,
+            "action": "checkpoint",
+            "verify": [
+              "Can you explain what TourGuide does?",
+              "Can you explain what TourGuide does NOT do?",
+              "Do you understand the difference between navigation and execution?"
+            ],
+            "next": "If you can answer these questions, proceed to phase_2"
+          }
+        ]
+      },
+      {
+        "id": "phase_2",
+        "name": "Exploring Structure",
+        "description": "Understand the project layout and file types",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "read_file",
+            "path": "docs/SCHEMA.md",
+            "focus": [
+              "JSON structure of TourGuide files",
+              "Required vs optional fields",
+              "Navigation patterns"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "read_file",
+            "path": "templates/minimal.json",
+            "focus": [
+              "Simplest possible TourGuide",
+              "Required fields only"
+            ]
+          },
+          {
+            "step": 3,
+            "action": "checkpoint",
+            "verify": [
+              "What are the required fields in a TourGuide JSON?",
+              "What makes the minimal template 'minimal'?"
+            ],
+            "next": "If understood, proceed to phase_3"
+          }
+        ]
+      },
+      {
+        "id": "phase_3",
+        "name": "Practical Examples",
+        "description": "See TourGuide in real-world scenarios",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "read_file",
+            "path": "examples/python-app/tourguide.json",
+            "focus": [
+              "How TourGuide organizes a Python codebase",
+              "Sub-guides for deep dives",
+              "Checkpoint usage"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "read_file",
+            "path": "docs/GUIDE.md",
+            "focus": [
+              "Creating your own TourGuide",
+              "Best practices",
+              "Common patterns"
+            ]
+          },
+          {
+            "step": 3,
+            "action": "checkpoint",
+            "verify": [
+              "Can you describe a scenario where TourGuide would be useful?",
+              "How would you create a TourGuide for a new project?"
+            ],
+            "next": "If ready, proceed to final_summary"
+          }
+        ]
+      },
+      {
+        "id": "final_summary",
+        "name": "Completion",
+        "description": "Synthesize what you learned",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "report",
+            "task": "Summarize your understanding of TourGuide",
+            "include": [
+              "What problem TourGuide solves",
+              "What TourGuide is NOT",
+              "When to use TourGuide",
+              "How to create a basic guide"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "complete",
+            "message": "🎉 You have completed the TourGuide self-tour! You now understand how to navigate codebases using TourGuide.",
+            "next_steps": [
+              "Try creating a TourGuide for your own project",
+              "Explore the templates/ directory for starting points",
+              "Read GUIDE.md for advanced patterns"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "ignorance_zones": [
+    {
+      "path": "LICENSE",
+      "reason": "Legal text, not relevant for navigation demo"
+    },
+    {
+      "path": "examples/docs-site/",
+      "reason": "Alternative example, not needed for basic understanding"
+    },
+    {
+      "path": "templates/standard.json",
+      "reason": "Similar to minimal but more complex; minimal is sufficient"
+    },
+    {
+      "path": "templates/codebase.json",
+      "reason": "Advanced template; covered in GUIDE.md instead"
+    }
+  ],
+  "completion_criteria": {
+    "understanding": "AI can explain what TourGuide is and is NOT",
+    "structure": "AI knows how to read and create a TourGuide JSON",
+    "practical": "AI can suggest when to use TourGuide",
+    "meta": "AI recognizes it just used TourGuide to learn about TourGuide"
+  }
+}

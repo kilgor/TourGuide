@@ -1,0 +1,37 @@
+{
+  "guide_name": "Minimal Project Guide",
+  "version": "0.0.1",
+  "description": "The simplest possible TourGuide",
+  "ai_instructions": {
+    "role": "You are exploring this project",
+    "task": "Read the specified files in order",
+    "rules": [
+      "Follow the sequence exactly",
+      "Complete checkpoints before moving on"
+    ]
+  },
+  "navigation": {
+    "start_here": "phase_1",
+    "phases": [
+      {
+        "id": "phase_1",
+        "name": "Project Overview",
+        "description": "Understand what this project does",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "read_file",
+            "path": "README.md",
+            "focus": ["Project purpose", "Key features"]
+          },
+          {
+            "step": 2,
+            "action": "checkpoint",
+            "verify": ["What does this project do?"],
+            "next": "If understood, exploration complete"
+          }
+        ]
+      }
+    ]
+  }
+}

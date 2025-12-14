@@ -1,0 +1,338 @@
+{
+  "guide_name": "Large Codebase Deep Exploration",
+  "version": "0.0.1",
+  "description": "Comprehensive guide for complex or legacy codebases",
+  "ai_instructions": {
+    "role": "You are conducting a thorough exploration of a large codebase",
+    "task": "Build complete, layered understanding through systematic navigation",
+    "rules": [
+      "Read files in the exact order specified",
+      "Complete each checkpoint before moving to the next phase",
+      "Follow all sub-guides for domain-specific deep dives",
+      "Do NOT skip ahead, summarize, or make assumptions",
+      "Report progress at each checkpoint",
+      "Respect ignorance zones - do NOT read excluded files"
+    ]
+  },
+  "navigation": {
+    "start_here": "phase_1",
+    "phases": [
+      {
+        "id": "phase_1",
+        "name": "Project Foundation",
+        "description": "Understand history, purpose, and high-level architecture",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "read_file",
+            "path": "README.md",
+            "focus": [
+              "Project description and goals",
+              "Key features and capabilities",
+              "Target audience",
+              "Known limitations"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "read_file",
+            "path": "CHANGELOG.md",
+            "focus": [
+              "Recent major changes",
+              "Breaking changes in last 3 versions",
+              "Deprecated features"
+            ],
+            "notes": "Understanding evolution helps contextualize current state"
+          },
+          {
+            "step": 3,
+            "action": "read_file",
+            "path": "docs/ARCHITECTURE.md",
+            "focus": [
+              "System design principles",
+              "Component boundaries",
+              "Data flow patterns",
+              "Technology stack rationale"
+            ]
+          },
+          {
+            "step": 4,
+            "action": "checkpoint",
+            "verify": [
+              "What is the core purpose of this codebase?",
+              "What are the main architectural components?",
+              "What design patterns are used?",
+              "What recent changes might affect understanding?"
+            ],
+            "next": "If you can answer all questions, proceed to phase_2"
+          }
+        ]
+      },
+      {
+        "id": "phase_2",
+        "name": "Domain Exploration",
+        "description": "Understand business logic and domain models",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "read_file",
+            "path": "docs/DOMAIN_MODEL.md",
+            "focus": [
+              "Core entities and their relationships",
+              "Business rules and constraints",
+              "Domain-specific terminology"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "follow_guide",
+            "path": "src/models/tourguide.json",
+            "notes": "Deep dive into data structures and entities"
+          },
+          {
+            "step": 3,
+            "action": "checkpoint",
+            "verify": [
+              "What are the core domain entities?",
+              "How do entities relate to each other?",
+              "What are the key business rules?"
+            ],
+            "next": "If domain is clear, proceed to phase_3"
+          }
+        ]
+      },
+      {
+        "id": "phase_3",
+        "name": "Core Systems",
+        "description": "Understand main application logic and workflows",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "read_file",
+            "path": "src/main.py",
+            "focus": [
+              "Application entry point",
+              "Initialization sequence",
+              "Main execution loop"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "follow_guide",
+            "path": "src/core/tourguide.json",
+            "notes": "Explore core business logic modules"
+          },
+          {
+            "step": 3,
+            "action": "follow_guide",
+            "path": "src/services/tourguide.json",
+            "notes": "Understand service layer and external integrations"
+          },
+          {
+            "step": 4,
+            "action": "checkpoint",
+            "verify": [
+              "How does the application start and initialize?",
+              "What are the main execution paths?",
+              "How do services interact with each other?",
+              "What are the critical business workflows?"
+            ],
+            "next": "If core logic is understood, proceed to phase_4"
+          }
+        ]
+      },
+      {
+        "id": "phase_4",
+        "name": "Infrastructure & Dependencies",
+        "description": "Understand technical infrastructure and external requirements",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "read_file",
+            "path": "docs/INFRASTRUCTURE.md",
+            "focus": [
+              "Deployment architecture",
+              "Database schema and migrations",
+              "Caching and performance strategies",
+              "Monitoring and logging"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "read_file",
+            "path": "requirements.txt",
+            "focus": [
+              "Critical dependencies",
+              "Version constraints and why they exist"
+            ]
+          },
+          {
+            "step": 3,
+            "action": "read_file",
+            "path": "config/production.yaml",
+            "focus": [
+              "Production configuration",
+              "Environment variables",
+              "Feature flags"
+            ]
+          },
+          {
+            "step": 4,
+            "action": "checkpoint",
+            "verify": [
+              "What infrastructure does this codebase depend on?",
+              "What are the critical external dependencies?",
+              "How is the application configured for different environments?",
+              "What monitoring and logging is in place?"
+            ],
+            "next": "If infrastructure is clear, proceed to phase_5"
+          }
+        ]
+      },
+      {
+        "id": "phase_5",
+        "name": "Edge Cases & Error Handling",
+        "description": "Understand how the system handles failures and edge cases",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "read_file",
+            "path": "docs/ERROR_HANDLING.md",
+            "focus": [
+              "Error handling strategies",
+              "Retry mechanisms",
+              "Fallback behaviors"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "follow_guide",
+            "path": "src/errors/tourguide.json",
+            "notes": "Explore error types and exception handling"
+          },
+          {
+            "step": 3,
+            "action": "checkpoint",
+            "verify": [
+              "How does the system handle errors?",
+              "What are the failure modes?",
+              "What retry and fallback strategies exist?"
+            ],
+            "next": "If error handling is understood, proceed to phase_6"
+          }
+        ]
+      },
+      {
+        "id": "phase_6",
+        "name": "Testing & Quality",
+        "description": "Understand testing strategy and quality measures",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "read_file",
+            "path": "docs/TESTING.md",
+            "focus": [
+              "Testing philosophy",
+              "Test coverage expectations",
+              "Test execution process"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "read_file",
+            "path": "tests/conftest.py",
+            "focus": [
+              "Test fixtures",
+              "Test utilities",
+              "Mock strategies"
+            ]
+          },
+          {
+            "step": 3,
+            "action": "checkpoint",
+            "verify": [
+              "What is the testing strategy?",
+              "What test types exist?",
+              "How are tests organized?"
+            ],
+            "next": "If testing is clear, proceed to final_synthesis"
+          }
+        ]
+      },
+      {
+        "id": "final_synthesis",
+        "name": "Complete Understanding",
+        "description": "Synthesize all layers of understanding",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "report",
+            "task": "Provide a comprehensive summary of the codebase",
+            "include": [
+              "Project purpose, scope, and constraints",
+              "High-level architecture and design patterns",
+              "Domain model and business logic",
+              "Core systems and workflows",
+              "Infrastructure and dependencies",
+              "Error handling and edge cases",
+              "Testing strategy and quality measures",
+              "Known limitations or technical debt",
+              "Areas that need clarification (if any)"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "complete",
+            "message": "🎯 Comprehensive codebase exploration complete. You now have a deep, systematic understanding of this project.",
+            "next_steps": [
+              "Ready for complex refactoring tasks",
+              "Can assist with architectural decisions",
+              "Can debug across system boundaries",
+              "Can suggest improvements based on complete context"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "ignorance_zones": [
+    {
+      "path": "node_modules/",
+      "reason": "External dependencies, not project code"
+    },
+    {
+      "path": "__pycache__/",
+      "reason": "Build artifacts, not source"
+    },
+    {
+      "path": ".git/",
+      "reason": "Version control internals, not relevant"
+    },
+    {
+      "path": "dist/",
+      "reason": "Build output, not source"
+    },
+    {
+      "path": "coverage/",
+      "reason": "Test artifacts, not source"
+    },
+    {
+      "path": "vendor/",
+      "reason": "Third-party code, not project code"
+    },
+    {
+      "path": "docs/archive/",
+      "reason": "Outdated documentation, may confuse current understanding"
+    }
+  ],
+  "completion_criteria": {
+    "foundation": "AI understands project purpose, history, and architecture",
+    "domain": "AI knows the business logic and domain models",
+    "implementation": "AI understands core systems and workflows",
+    "infrastructure": "AI knows technical dependencies and deployment",
+    "resilience": "AI understands error handling and edge cases",
+    "quality": "AI knows testing strategy and quality measures",
+    "synthesis": "AI can explain the entire system coherently",
+    "ready": "AI can handle complex cross-cutting tasks with confidence"
+  }
+}

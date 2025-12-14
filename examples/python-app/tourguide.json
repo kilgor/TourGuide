@@ -1,0 +1,267 @@
+{
+  "guide_name": "Python Application Tour",
+  "version": "0.0.1",
+  "description": "Navigate a typical Python web application",
+  "ai_instructions": {
+    "role": "You are exploring a Python web application",
+    "task": "Build understanding of architecture, implementation, and deployment",
+    "rules": [
+      "Read files in the exact order specified",
+      "Complete each checkpoint before moving on",
+      "Follow sub-guides for deep dives",
+      "Respect ignorance zones"
+    ]
+  },
+  "navigation": {
+    "start_here": "phase_1",
+    "phases": [
+      {
+        "id": "phase_1",
+        "name": "Project Overview",
+        "description": "Understand what this application does",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "read_file",
+            "path": "README.md",
+            "focus": [
+              "Application purpose",
+              "Key features",
+              "Technology stack"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "read_file",
+            "path": "docs/ARCHITECTURE.md",
+            "focus": [
+              "System design",
+              "Component relationships",
+              "Design patterns used"
+            ]
+          },
+          {
+            "step": 3,
+            "action": "checkpoint",
+            "verify": [
+              "What problem does this app solve?",
+              "What is the overall architecture?",
+              "What technologies are used?"
+            ],
+            "next": "If you understand the big picture, proceed to phase_2"
+          }
+        ]
+      },
+      {
+        "id": "phase_2",
+        "name": "Application Entry Point",
+        "description": "Understand how the application starts",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "read_file",
+            "path": "src/main.py",
+            "focus": [
+              "Entry point function",
+              "Initialization sequence",
+              "Configuration loading",
+              "Main execution flow"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "read_file",
+            "path": "src/config.py",
+            "focus": [
+              "Configuration management",
+              "Environment variables",
+              "Default settings"
+            ]
+          },
+          {
+            "step": 3,
+            "action": "checkpoint",
+            "verify": [
+              "How does the app start?",
+              "What gets initialized first?",
+              "How is configuration loaded?"
+            ],
+            "next": "If entry point is clear, proceed to phase_3"
+          }
+        ]
+      },
+      {
+        "id": "phase_3",
+        "name": "Core Business Logic",
+        "description": "Explore the main application logic",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "follow_guide",
+            "path": "src/models/tourguide.json",
+            "notes": "Understand data models and entities"
+          },
+          {
+            "step": 2,
+            "action": "follow_guide",
+            "path": "src/services/tourguide.json",
+            "notes": "Explore service layer and business logic"
+          },
+          {
+            "step": 3,
+            "action": "follow_guide",
+            "path": "src/api/tourguide.json",
+            "notes": "Learn API endpoints and request handling"
+          },
+          {
+            "step": 4,
+            "action": "checkpoint",
+            "verify": [
+              "What are the core domain models?",
+              "How do services interact?",
+              "What API endpoints are exposed?"
+            ],
+            "next": "If business logic is understood, proceed to phase_4"
+          }
+        ]
+      },
+      {
+        "id": "phase_4",
+        "name": "Database & Persistence",
+        "description": "Understand data storage and retrieval",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "read_file",
+            "path": "src/database.py",
+            "focus": [
+              "Database connection setup",
+              "ORM configuration",
+              "Migration strategy"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "read_file",
+            "path": "migrations/001_initial_schema.sql",
+            "focus": [
+              "Database schema",
+              "Table relationships",
+              "Indexes and constraints"
+            ]
+          },
+          {
+            "step": 3,
+            "action": "checkpoint",
+            "verify": [
+              "What database is used?",
+              "How is the schema structured?",
+              "How are migrations managed?"
+            ],
+            "next": "If database layer is clear, proceed to phase_5"
+          }
+        ]
+      },
+      {
+        "id": "phase_5",
+        "name": "Dependencies & Configuration",
+        "description": "Understand external requirements",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "read_file",
+            "path": "requirements.txt",
+            "focus": [
+              "External packages",
+              "Version constraints",
+              "Critical dependencies"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "read_file",
+            "path": "docker-compose.yml",
+            "focus": [
+              "Service definitions",
+              "Environment setup",
+              "Port mappings"
+            ]
+          },
+          {
+            "step": 3,
+            "action": "checkpoint",
+            "verify": [
+              "What are the key dependencies?",
+              "How is the app deployed?",
+              "What services does it depend on?"
+            ],
+            "next": "If deployment is understood, proceed to final_summary"
+          }
+        ]
+      },
+      {
+        "id": "final_summary",
+        "name": "Completion",
+        "description": "Synthesize complete understanding",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "report",
+            "task": "Provide a comprehensive summary of the application",
+            "include": [
+              "Application purpose and features",
+              "Architecture and design patterns",
+              "Core business logic and workflows",
+              "Data models and database schema",
+              "External dependencies and deployment"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "complete",
+            "message": "🎉 Complete understanding of the Python application achieved!",
+            "next_steps": [
+              "Ready to implement new features",
+              "Can debug issues across the stack",
+              "Can suggest architectural improvements"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "ignorance_zones": [
+    {
+      "path": "__pycache__/",
+      "reason": "Python bytecode cache, not source code"
+    },
+    {
+      "path": ".pytest_cache/",
+      "reason": "Test framework cache, not source"
+    },
+    {
+      "path": "venv/",
+      "reason": "Virtual environment, not project code"
+    },
+    {
+      "path": ".git/",
+      "reason": "Version control internals"
+    },
+    {
+      "path": "logs/",
+      "reason": "Runtime logs, not code"
+    },
+    {
+      "path": "dist/",
+      "reason": "Build artifacts"
+    }
+  ],
+  "completion_criteria": {
+    "purpose": "AI understands what the application does and why",
+    "architecture": "AI knows the system design and component relationships",
+    "implementation": "AI understands the code structure and key modules",
+    "data": "AI knows the data models and database schema",
+    "deployment": "AI understands dependencies and how to run the app",
+    "ready": "AI can implement features, debug issues, and suggest improvements"
+  }
+}

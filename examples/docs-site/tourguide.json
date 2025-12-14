@@ -1,0 +1,260 @@
+{
+  "guide_name": "Documentation Site Tour",
+  "version": "0.0.1",
+  "description": "Navigate a documentation website structure",
+  "ai_instructions": {
+    "role": "You are exploring a documentation site",
+    "task": "Understand the documentation structure and content organization",
+    "rules": [
+      "Read files in the exact order specified",
+      "Complete checkpoints before proceeding",
+      "Focus on structure and organization, not every detail"
+    ]
+  },
+  "navigation": {
+    "start_here": "phase_1",
+    "phases": [
+      {
+        "id": "phase_1",
+        "name": "Site Overview",
+        "description": "Understand the documentation purpose and structure",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "read_file",
+            "path": "README.md",
+            "focus": [
+              "What is being documented",
+              "Target audience",
+              "Documentation philosophy"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "read_file",
+            "path": "docs/index.md",
+            "focus": [
+              "Main landing page content",
+              "Navigation structure",
+              "Key documentation sections"
+            ]
+          },
+          {
+            "step": 3,
+            "action": "checkpoint",
+            "verify": [
+              "What is being documented?",
+              "Who is the audience?",
+              "What are the main sections?"
+            ],
+            "next": "If overview is clear, proceed to phase_2"
+          }
+        ]
+      },
+      {
+        "id": "phase_2",
+        "name": "Getting Started Section",
+        "description": "Explore beginner-focused documentation",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "read_file",
+            "path": "docs/getting-started/installation.md",
+            "focus": [
+              "Installation steps",
+              "Prerequisites",
+              "Platform-specific instructions"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "read_file",
+            "path": "docs/getting-started/quickstart.md",
+            "focus": [
+              "First steps after installation",
+              "Basic usage examples",
+              "Common patterns"
+            ]
+          },
+          {
+            "step": 3,
+            "action": "checkpoint",
+            "verify": [
+              "How do users install?",
+              "What are the first steps?",
+              "Are there examples?"
+            ],
+            "next": "If getting started is clear, proceed to phase_3"
+          }
+        ]
+      },
+      {
+        "id": "phase_3",
+        "name": "Core Concepts",
+        "description": "Understand fundamental concepts",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "read_file",
+            "path": "docs/concepts/overview.md",
+            "focus": [
+              "Key terminology",
+              "Core abstractions",
+              "Mental models"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "read_file",
+            "path": "docs/concepts/architecture.md",
+            "focus": [
+              "System architecture",
+              "Component relationships",
+              "Design philosophy"
+            ]
+          },
+          {
+            "step": 3,
+            "action": "checkpoint",
+            "verify": [
+              "What are the core concepts?",
+              "How does the system work?",
+              "What are the key abstractions?"
+            ],
+            "next": "If concepts are understood, proceed to phase_4"
+          }
+        ]
+      },
+      {
+        "id": "phase_4",
+        "name": "Guides & Tutorials",
+        "description": "Explore task-based documentation",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "read_file",
+            "path": "docs/guides/index.md",
+            "focus": [
+              "Available guides",
+              "Guide structure",
+              "Recommended learning path"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "read_file",
+            "path": "docs/guides/basic-workflow.md",
+            "focus": [
+              "Step-by-step instructions",
+              "Code examples",
+              "Common patterns"
+            ]
+          },
+          {
+            "step": 3,
+            "action": "checkpoint",
+            "verify": [
+              "What tasks are documented?",
+              "Are there code examples?",
+              "Is there a recommended learning path?"
+            ],
+            "next": "If guides are clear, proceed to phase_5"
+          }
+        ]
+      },
+      {
+        "id": "phase_5",
+        "name": "API Reference",
+        "description": "Understand API documentation structure",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "read_file",
+            "path": "docs/api/index.md",
+            "focus": [
+              "API organization",
+              "Available modules",
+              "Documentation format"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "read_file",
+            "path": "docs/api/core.md",
+            "focus": [
+              "Core API reference",
+              "Function signatures",
+              "Parameter descriptions",
+              "Return values and examples"
+            ]
+          },
+          {
+            "step": 3,
+            "action": "checkpoint",
+            "verify": [
+              "How is the API organized?",
+              "What are the core modules?",
+              "Is the reference complete?"
+            ],
+            "next": "If API reference is understood, proceed to final_summary"
+          }
+        ]
+      },
+      {
+        "id": "final_summary",
+        "name": "Completion",
+        "description": "Synthesize documentation understanding",
+        "sequence": [
+          {
+            "step": 1,
+            "action": "report",
+            "task": "Summarize the documentation structure",
+            "include": [
+              "Documentation purpose and audience",
+              "Main sections and their purpose",
+              "Getting started flow",
+              "Core concepts covered",
+              "Available guides and tutorials",
+              "API reference structure"
+            ]
+          },
+          {
+            "step": 2,
+            "action": "complete",
+            "message": "📚 Documentation site exploration complete!",
+            "next_steps": [
+              "Can answer questions about the documented project",
+              "Can suggest documentation improvements",
+              "Can help users navigate to relevant docs"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "ignorance_zones": [
+    {
+      "path": "node_modules/",
+      "reason": "Build dependencies, not documentation content"
+    },
+    {
+      "path": ".vuepress/",
+      "reason": "Documentation framework, not content"
+    },
+    {
+      "path": "dist/",
+      "reason": "Built site, not source"
+    },
+    {
+      "path": ".cache/",
+      "reason": "Build cache"
+    }
+  ],
+  "completion_criteria": {
+    "structure": "AI understands documentation organization",
+    "audience": "AI knows who the docs are for",
+    "coverage": "AI knows what topics are covered",
+    "navigation": "AI can guide users to relevant sections",
+    "ready": "AI can answer questions about the documented project"
+  }
+}
