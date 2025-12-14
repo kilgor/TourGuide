@@ -1,5 +1,14 @@
 # 🎯 TourGuide Demo
 
+## 🚀 Quick Demo Instructions (For Humans)
+
+1. **Clone the repository:**
+	- `git clone https://github.com/kilgor/TourGuide.git`
+2. **Open the folder in your favorite IDE** (VS Code, PyCharm, etc.)
+3. **Read this DEMO-README.md file**
+4. **Show this file to your AI assistant** (GitHub Copilot, ChatGPT, Claude, etc.)
+5. **Let the AI follow the instructions below to run the demo!**
+
 **Instructions:** Show this file to your AI assistant (GitHub Copilot, ChatGPT, Claude, etc.)
 
 ---
