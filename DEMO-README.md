@@ -7,7 +7,7 @@
 2. **Open the folder in your favorite IDE** (VS Code, PyCharm, etc.)
 3. **Read this DEMO-README.md file**
 4. **Show this file to your AI assistant** (GitHub Copilot, ChatGPT, Claude, etc.)
-5. **Let the AI follow the instructions below to run the demo!**
+5. **Let you and your AI assistant follow the instructions below together to build your own TourGuide!**
 
 **Instructions:** Show this file to your AI assistant (GitHub Copilot, ChatGPT, Claude, etc.)
 
